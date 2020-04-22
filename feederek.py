@@ -10,7 +10,7 @@ feed_list =["https://vchasnoua.com/rss/",
 last_feeds = pickle.load(open("db.p", 'rb'))
 fee_links = []
 
-bot = telegram.Bot(token='1279713740:AAHr5YwqV-f1vHC0mxXdCuAqOSovRHhZSfU')
+bot = telebot.TeleBot(token='1279713740:AAHr5YwqV-f1vHC0mxXdCuAqOSovRHhZSfU')
 
 print(last_feeds)
 print("-----Last feeds---")
@@ -31,7 +31,7 @@ def feederek():
 
 
                 message = str(fee_title +"\n" + entry_title +"\n" + entry_id)
-                bot.sendMessage(chat_id="@pokrovskme", text=message)
+                bot.send_message(chat_id="@pokrovskme", text=message)
 
     pickle.dump(fee_links, open("db.p", 'wb'))
     sys.exit(0)
